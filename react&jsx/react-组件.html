@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello React</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.querySelector("#app"));
+
+      const clickHandler = () => {
+        console.log("click");
+      };
+      // react 类组件
+      class App extends React.Component {
+        // 数据
+        constructor() {
+          super();
+          this.state = {
+            msg: "数据",
+          };
+        }
+
+        // 方法
+        clickHandler = () => {
+          console.log("click");
+        };
+        // render
+        render() {
+          return (
+            <div>
+              <h2>App 类组件</h2>
+              <p>{this.state.msg}</p>
+              <button onClick={clickHandler}>点击</button>
+            </div>
+          );
+        }
+      }
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>
